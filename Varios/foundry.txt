@@ -1,0 +1,17 @@
+# Install foundry
+curl -L https://foundry.paradigm.xyz | bash
+
+# Install forge, cast, anvil, chisel (foundry --force)
+foundryup
+
+# Install the latest nightly release
+foundryup -i nightly
+
+# Después de instalar foundry (en la terminal) para iniciarlo
+forge init
+
+# Para compilar el contrato
+forge build
+
+# Para hacer pruebas del contrato
+forge test 

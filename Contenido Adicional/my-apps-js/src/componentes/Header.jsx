@@ -5,6 +5,8 @@ export function Header() {
     <ul>
       <li><Link to="/productos">Productos</Link></li>
       <li><Link to="/clientes">Clientes</Link></li>
+      <li><Link to="/lista">Lista</Link></li>
+      <li><Link to="/tx">Tx</Link></li>
     </ul>
   </div>
 }

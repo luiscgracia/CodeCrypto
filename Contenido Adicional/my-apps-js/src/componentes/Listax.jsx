@@ -3,7 +3,7 @@ import {useQuery} from 'react-query'
 export function Listac () {
 
   const {data, isLoading, isError} = useQuery(["query1"], () => {
-    return ["juan", "pedro"]
+    return ["juan", "pedro", "jorge"]
   })
 
   if (isError) {

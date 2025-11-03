@@ -1,0 +1,62 @@
+name: CI - Foundry (sc)
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'sc/**'
+      - '.github/workflows/ci-foundry.yml'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'sc/**'
+      - '.github/workflows/ci-foundry.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+
+      - name: Cache Foundry dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            sc/lib
+            ~/.foundry/cache
+          key: ${{ runner.os }}-foundry-${{ hashFiles('sc/foundry.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-foundry-
+
+      - name: Configure git to use HTTPS
+        run: |
+          git config --global url."https://github.com/".insteadOf git@github.com:
+
+      - name: Ensure forge-std dependency
+        working-directory: sc
+        run: |
+          if [ ! -f "lib/forge-std/src/Script.sol" ]; then
+            forge install foundry-rs/forge-std
+          else
+            echo "forge-std already present"
+          fi
+
+      - name: Build contracts
+        working-directory: sc
+        run: |
+          forge fmt --check
+          forge build --sizes
+
+      - name: Run tests
+        working-directory: sc
+        run: |
+          forge test -vvv
+
+

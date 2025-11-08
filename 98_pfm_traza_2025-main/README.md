@@ -432,7 +432,7 @@ function isAdmin(address userAddress) public view returns (bool) { }
 
 // Gestión de Tokens
 function createToken(string memory name, uint totalSupply, string memory features, uint parentId) public { }
-function getToken(uint tokenId) public view returns (Token memory) { }
+function getToken(uint tokenId) public view returns (Token memory) { } ******************
 function getTokenBalance(uint tokenId, address userAddress) public view returns (uint) { }
 
 // Gestión de Transferencias
@@ -741,7 +741,7 @@ npm run dev
 
 6. **Sistema de Transferencias**
    - Transferir tokens entre roles
-   - Sistema de aceptación/rechazo
+   - Sistema de aceptación/rechazo    // Read-only helpers used by the UI
    - Trazabilidad completa
 
 ---

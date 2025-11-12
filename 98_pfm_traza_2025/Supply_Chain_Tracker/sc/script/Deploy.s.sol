@@ -1,18 +1,16 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-import {Script} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
+import {Script, console} from "forge-std/Script.sol";
+import {SupplyChain} from "../src/SupplyChain.sol";
 
-contract CounterScript is Script {
-    Counter public counter;
-
-    function setUp() public {}
-
-    function run() public {
+contract SupplyChainScript is Script {
+    function run() external {
+        // Usará la clave proporcionada por --private-key o --keystore en la CLI
         vm.startBroadcast();
 
-        counter = new Counter();
+        SupplyChain supplyChain = new SupplyChain();
+        console.log(unicode"✅ SupplyChain desplegado en:", address(supplyChain));
 
         vm.stopBroadcast();
     }

@@ -269,6 +269,11 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "string",
+						"name": "features",
+						"type": "string"
+					},
+					{
 						"internalType": "uint256",
 						"name": "parentId",
 						"type": "uint256"
@@ -306,6 +311,62 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "transferId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTransfer",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "from",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dateCreated",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum SupplyChainTracker.TransferStatus",
+								"name": "status",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct SupplyChainTracker.Transfer",
+						"name": "",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -631,7 +692,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"src/SupplyChain.sol": "SupplyChainTracker"
+			"src/SupplyChainTracker.sol": "SupplyChainTracker"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -661,12 +722,12 @@
 				"dweb:/ipfs/QmarDJ5hZEgBtCmmrVzEZWjub9769eD686jmzb2XpSU1cM"
 			]
 		},
-		"src/SupplyChain.sol": {
-			"keccak256": "0xaae91aef4dacf039cfeb4088d8646ca53da4bd16e3197ca75f0ee927e5def8d4",
+		"src/SupplyChainTracker.sol": {
+			"keccak256": "0xb9ca34ee5d5ccd968f216e8500bea19625e5fe76a9d9bd7fbd4a9a26068f78f2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cbf85a8e2d0ac88d632b36d139f2cabc36403892dea1f61c29540a9567c15e9e",
-				"dweb:/ipfs/QmULRP25FugdgYHct2Rnz36PbCsFzdQpD68bCoteUpqcVg"
+				"bzz-raw://a786a9e2295df27bb8c7c614d8990466fcfc227960143262ebffea42529241d1",
+				"dweb:/ipfs/QmbAM1ZV3bTevif67Tr69YFXJGgT8Uwoi8NVf9pLL5S65V"
 			]
 		}
 	},

@@ -142,6 +142,7 @@ contract SupplyChainTracker is ReentrancyGuard {
         address creator,
         string memory name,
         uint256 totalSupply,
+        string memory features,
         uint256 parentId,
         uint256 dateCreated,
         uint256 balance
@@ -152,6 +153,7 @@ contract SupplyChainTracker is ReentrancyGuard {
             token.creator,
             token.name,
             token.totalSupply,
+            token.features,
             token.parentId,
             token.dateCreated,
             token.balance[msg.sender]
@@ -163,7 +165,6 @@ contract SupplyChainTracker is ReentrancyGuard {
         return tokens[tokenId].balance[user];
     }
 
-    // --- Transfer Management ---
     function transfer(address to, uint256 tokenId, uint256 amount) public onlyApprovedUser nonReentrant {
         require(to != address(0) && to != msg.sender, "Invalid recipient");
         require(amount > 0, "Amount must be > 0");
@@ -192,6 +193,10 @@ contract SupplyChainTracker is ReentrancyGuard {
             status: TransferStatus.Pending
         });
         emit TransferRequested(newTransferId, msg.sender, to, tokenId, amount);
+    }
+
+    function getTransfer(uint256 transferId) public view returns (Transfer memory) {
+        return transfers[transferId];
     }
 
     function acceptTransfer(uint256 transferId) public onlyApprovedUser {

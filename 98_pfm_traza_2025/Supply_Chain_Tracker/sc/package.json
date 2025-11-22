@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "@openzeppelin/contracts": "^5.4.0",
-    "@openzeppelin/test-helpers": "^0.5.16",
-    "ethers": "^6.15.0",
-    "solc": "^0.8.30",
-    "web3": "^4.16.0"
-  }
-}
